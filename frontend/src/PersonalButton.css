@@ -1,0 +1,11 @@
+.personalButton {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  width: 200px;
+  height: 100px;
+}
+
+.invisibleButton {
+  display: none;
+}

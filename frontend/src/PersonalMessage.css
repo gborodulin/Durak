@@ -1,0 +1,15 @@
+.personalMessage {
+  position: absolute;
+  bottom: 30px;
+  margin-bottom: 20px;
+  right: 120px;
+  font-size: 75px;
+}
+
+.attack {
+  color: red;
+}
+
+.defend {
+  color: blue;
+}

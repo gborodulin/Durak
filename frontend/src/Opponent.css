@@ -1,0 +1,65 @@
+.opp {
+  display: block;
+  position: absolute;
+  margin: auto auto;
+  top: 0%;
+  height: 20%;
+  width: 19%;
+  margin: auto auto;
+  /* background-color: coral; */
+}
+
+.opp .oppName {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  display: block;
+  margin: auto auto;
+  width: fit-content;
+  padding: 5px;
+  border: 2px solid black;
+  /* background-color: darkcyan; */
+}
+
+.opp .oppHand {
+  display: grid;
+  position: absolute;
+  top: 50%;
+  width: fit-content;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(10px, max-content));
+  /* background-color: green; */
+}
+
+.opponent0 {
+  transform: rotate(-90deg);
+  left: 0px;
+  top: 35%;
+}
+
+.opponent0 .oppName {
+  transform: rotate(90deg);
+  margin-top: -15px;
+}
+
+.opponent2 {
+  transform: rotate(90deg);
+  right: 0px;
+  top: 35%;
+}
+
+.opponent2 .oppName {
+  transform: rotate(-90deg);
+  margin-top: -15px;
+}
+.temp {
+  display: inline-block;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: rgb(33, 33, 250);
+}

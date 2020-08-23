@@ -1,0 +1,63 @@
+.card {
+  margin-left: 20px;
+  width: 100px;
+  height: 150px;
+  background-color: white;
+  color: tomato;
+  display: inline-block;
+  border: 2px solid black;
+  text-align: left;
+}
+
+.inHand {
+  margin-top: 30px;
+}
+
+.inHand:hover {
+  margin-top: 0px;
+}
+
+#selectedCard {
+  margin-top: 0px;
+  border: 2px solid blue;
+}
+
+.invisibleCard {
+  background-color: rgba(255, 192, 203, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
+  /* height: 1px; */
+}
+
+.card h3 {
+  display: inline-block;
+  margin: 3px;
+  margin-top: -50px;
+  /* background-color: blueviolet; */
+}
+
+.backOfCard {
+  display: inline-block;
+  background-color: white;
+  border: 2px solid black;
+  width: 50px;
+  height: 75px;
+  margin-left: 5px;
+}
+
+.backOfCard img {
+  margin-top: 50%;
+  height: 20px;
+}
+
+.trump {
+  position: absolute;
+  width: 55px;
+  height: 75px;
+  top: 0px;
+  right: 90px;
+  margin-bottom: 0px;
+}
+
+.trump .trumpTextHolder {
+  font-size: 20px;
+}

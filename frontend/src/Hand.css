@@ -1,0 +1,17 @@
+.hand {
+  min-height: 20%;
+  height: fit-content;
+  position: fixed;
+  bottom: 0;
+  background-color: grey;
+  width: 100%;
+}
+
+.cardsInHand {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, max-content));
+  width: 45%;
+  height: 185px;
+  margin: auto 30%;
+  /* background-color: red; */
+}

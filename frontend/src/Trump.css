@@ -1,0 +1,16 @@
+.trumpCard {
+  position: absolute;
+  color: black;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+.trumpSymbol {
+  position: absolute;
+  width: 50px;
+  height: 75px;
+  top: -65px;
+  right: 120px;
+  margin-bottom: 0px;
+}

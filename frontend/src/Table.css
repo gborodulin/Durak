@@ -1,0 +1,23 @@
+.table {
+  position: fixed;
+  top: 25%;
+  display: inline-block;
+  width: 60%;
+  height: 50%;
+  padding: 5px;
+  background-color: khaki;
+  border-radius: 20px;
+}
+
+.defenseCards {
+  margin-top: -100px;
+  margin-left: 20px;
+  pointer-events: none;
+}
+
+.gameOverMessage {
+  color: red;
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+}
