@@ -49,6 +49,7 @@ class App extends React.Component {
           playerInfo: data.playerInfo,
           tableInfo: data.table,
         });
+        console.log(data.playerInfo.role);
       } else if (data.method === 'personalResponse') {
         this.setState({ personalMessage: data.message });
       } else if (data.method === 'rejection') {

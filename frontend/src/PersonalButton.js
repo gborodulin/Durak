@@ -24,7 +24,7 @@ class PersonalButton extends React.Component {
   }
 
   componentWillUpdate(prevProps) {
-    if (this.props.hand.length === 0 && prevProps.hand.length !== 0) {
+    if (this.props.hand.length === 0 && prevProps.hand.length > 0) {
       this.pass();
     }
 

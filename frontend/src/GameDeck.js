@@ -13,7 +13,7 @@ class GameDeck extends React.Component {
   createBackOfDeck(gameDeckLength) {
     const deck = [];
 
-    for (var i = 0; i < gameDeckLength; i++) {
+    for (var i = 0; i < gameDeckLength - 1; i++) {
       deck.push({});
     }
 

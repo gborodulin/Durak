@@ -206,6 +206,7 @@ const whoGoesFirst = (players, table) => {
         value.role = 'attacker';
 
         const defenderLocation = Object.keys(players).indexOf(player) + 1;
+
         if (Object.values(players)[defenderLocation]) {
           Object.values(players)[defenderLocation].role = 'defender';
         } else {
@@ -219,14 +220,13 @@ const whoGoesFirst = (players, table) => {
       break;
     }
   }
-  //set first player as attacker and second as defender if no onw got trumps
+  //set first player as attacker and second as defender if no one got trumps
   if (firstLowestTrumpFound === false) {
     for (const [player, value] of Object.entries(players)) {
-      table.attacker = player;
       value.role = 'attacker';
       const defenderLocation = Object.keys(players).indexOf(player) + 1;
+
       Object.values(players)[defenderLocation].role = 'defender';
-      table.defender = Object.keys(players)[defenderLocation];
       break;
     }
   }
