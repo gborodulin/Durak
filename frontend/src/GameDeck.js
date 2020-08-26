@@ -19,7 +19,7 @@ class GameDeck extends React.Component {
 
     return (
       <div className="backOfDeck">
-        {this.props.gameDeck.map((card, index) => {
+        {deck.map((card, index) => {
           return <Card opponent={card} key={index} />;
         })}
       </div>
