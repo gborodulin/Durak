@@ -1,23 +1,56 @@
 .table {
-  position: fixed;
-  top: 25%;
-  display: inline-block;
-  width: 60%;
-  height: 50%;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 50vmin;
+  min-height: 260px;
+  width: 100%;
+  min-width: 415px;
   padding: 5px;
-  background-color: khaki;
+  overflow: hidden;
+  z-index: 0;
+
+  display: grid;
+  grid-template-columns: 20% 30% 20% 30%;
+  grid-template-rows: 60% 40%;
+
+  border: 2px solid black;
   border-radius: 20px;
+  /* background-color: khaki; */
+
+  background-image: url('./images/felt.jpg');
+}
+
+.attackingCards {
+  grid-column: 2 /-1;
+  grid-row: 1 /-1;
+  /* text-align: left; */
+  margin-right: 10px;
+}
+
+.table .card {
+  margin-left: 20px;
+  margin-bottom: 7vmin;
+  height: 18vmin;
+  width: 12vmin;
 }
 
 .defenseCards {
-  margin-top: -100px;
-  margin-left: 20px;
+  grid-column: 2 /-1;
+  grid-row: 1 /-1;
+  margin-left: 10px;
+  margin-top: 5.5vmin;
   pointer-events: none;
 }
 
 .gameOverMessage {
+  grid-column: 1/-1;
+
   color: red;
-  font-size: 50px;
+  font-family: 'instruct';
+  letter-spacing: 3px;
+  -webkit-text-stroke: 2px black;
+  font-size: 3vw;
   font-weight: 600;
   text-align: center;
+  margin: auto;
 }

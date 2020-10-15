@@ -1,9 +1,14 @@
 .personalMessage {
-  position: absolute;
-  bottom: 30px;
-  margin-bottom: 20px;
-  right: 120px;
-  font-size: 75px;
+  text-align: center;
+  font-family: 'instruct';
+  font-size: 3vw;
+  -webkit-text-stroke: 2px black;
+  letter-spacing: 3px;
+  grid-column: 1/2;
+  grid-row: 1/-1;
+  height: 35%;
+  width: 70%;
+  margin: 1% auto;
 }
 
 .attack {

@@ -57,6 +57,10 @@ const attackWithCard = (players, table, data) => {
   table.attackingCards.push(data.card);
   table.cardsOnTable.push(data.card);
   table.defendingCards.push({});
+
+  for (const [player, value] of Object.entries(players)) {
+    value.pass = false
+  }
 };
 
 const shiftAttackerDefender = (players, data) => {

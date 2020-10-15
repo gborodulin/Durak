@@ -1,25 +1,19 @@
 .card {
-  margin-left: 20px;
-  width: 100px;
-  height: 150px;
+  margin-left: 0px;
+  /* width: 100px; */
+  min-width: 59px;
+  /* height: 150px; */
+  min-height: 88px;
   background-color: white;
   color: tomato;
-  display: inline-block;
+  display: block;
+  float: left;
   border: 2px solid black;
   text-align: left;
 }
 
-.inHand {
-  margin-top: 30px;
-}
-
 .inHand:hover {
   margin-top: 0px;
-}
-
-#selectedCard {
-  margin-top: 0px;
-  border: 2px solid yellow;
 }
 
 .invisibleCard {
@@ -47,15 +41,6 @@
 .backOfCard img {
   margin-top: 50%;
   height: 20px;
-}
-
-.trump {
-  position: absolute;
-  width: 55px;
-  height: 75px;
-  top: 0px;
-  right: 90px;
-  margin-bottom: 0px;
 }
 
 .trump .trumpTextHolder {

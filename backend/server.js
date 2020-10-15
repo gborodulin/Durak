@@ -34,6 +34,7 @@ function sendToAll(payload) {
         name: currentPlayer.name,
         handLength: currentPlayer.hand.length,
         role: currentPlayer.role,
+        pass: currentPlayer.pass
       };
 
       personalPayload.playerInfo.opponents.push(enemy);

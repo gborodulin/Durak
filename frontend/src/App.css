@@ -1,13 +1,32 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-image: linear-gradient(180deg, #fcee2c, #000000);
+
+  height: 100vh;
+  min-height: 517px;
+  width: 100vw;
+  min-width: 738px;
+
+  display: grid;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 20% 60% 20%;
   color: white;
+}
+
+.App-alternate {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.52),
+      rgba(0, 0, 0, 0.89)
+    ),
+    url('./images/sovietBackground.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .newGame {
@@ -18,4 +37,31 @@
 
 .newGameInvisible {
   display: none;
+}
+
+.durak {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-size: 10vw;
+  font-family: 'Soviet';
+  color: red;
+  -webkit-text-stroke: 5px black;
+  margin-top: 250px;
+}
+
+.App-alternate h3 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-size: 2.5vw;
+  font-family: 'Soviet';
+  color: red;
+  -webkit-text-stroke: 5px black;
+  margin-top: 400px;
+  letter-spacing: 5px;
+}
+
+.enterName {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  padding-top: 150px;
 }

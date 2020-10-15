@@ -23,7 +23,7 @@ class Table extends React.Component {
             gameDeck={this.props.gameDeck}
             trumpCard={this.props.trumpCard}
           />
-          <div>
+          <div className='attackingCards'>
             {this.props.attackingCards.map((card, index) => {
               return (
                 <Card
@@ -55,7 +55,17 @@ class Table extends React.Component {
           <p className="gameOverMessage">
             Game Over
             <br />
-            Loser is {this.props.gameOver[1]}
+            {this.props.gameOver[1]} Looses
+          </p>
+        </div>
+      );
+    }else if(this.props.opponents.length === 0 ){
+      return(
+      <div className="table">
+          <p className="gameOverMessage">
+            Please wait for other players to connect
+            <br />
+            (or open a new tab to play locally)
           </p>
         </div>
       );

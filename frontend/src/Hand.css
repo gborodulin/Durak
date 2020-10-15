@@ -1,17 +1,39 @@
 .hand {
-  min-height: 20%;
-  height: fit-content;
-  position: fixed;
-  bottom: 0;
-  background-color: grey;
+  grid-column: 1 / -1;
+  grid-row: 3 / -1;
   width: 100%;
+  height: 100%;
+  min-height: 100px;
+
+  background-image: linear-gradient(
+    180deg,
+    rgb(117, 117, 117),
+    rgb(87, 86, 86)
+  );
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 100%;
+  z-index: 1000;
+  overflow: hidden;
 }
 
 .cardsInHand {
+  grid-column: 2 / 3;
+  grid-row: 1 / 1;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10px, max-content));
-  width: 45%;
-  height: 185px;
-  margin: auto 30%;
+  grid-template-rows: 100%;
+  /* padding-left: 5%; */
+
   /* background-color: red; */
+}
+
+.cardsInHand .card {
+  margin-top: 18px;
+  margin-left: 5px;
+  grid-row: 1 / 1;
+  height: 17vmin;
+  width: 12vmin;
 }

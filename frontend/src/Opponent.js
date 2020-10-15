@@ -26,9 +26,16 @@ class Opponent extends React.Component {
       oppName = <h3 className="oppName">{opponent.name}</h3>;
     }
 
+    console.log('pass', this.props.opponent.pass)
+
     return (
       <div>
-        {oppName}
+        <div className='passAndName'>
+          {oppName}
+          {this.props.opponent.pass ? <div className='oppPass'>Pass</div> : null}
+        </div>
+        
+        
         <div className="oppHand">
           {oppHand.map((card, index) => {
             return <Card opponent={card} key={index} />;

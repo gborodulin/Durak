@@ -11,7 +11,7 @@ class PersonalButton extends React.Component {
 
     this.pickUp = this.pickUp.bind(this);
     this.pass = this.pass.bind(this);
-    this.componentWillUpdate = this.componentWillUpdate.bind(this);
+    // this.componentWillUpdate = this.componentWillUpdate.bind(this);
   }
 
   pickUp() {
@@ -23,7 +23,7 @@ class PersonalButton extends React.Component {
     this.props.pass();
   }
 
-  componentWillUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if (this.props.hand.length === 0 && prevProps.hand.length > 0) {
       this.pass();
     }
@@ -36,9 +36,12 @@ class PersonalButton extends React.Component {
   render() {
     if (this.props.cardsToBeBeat.length > 0 && this.props.role === 'defender') {
       return (
-        <button className="personalButton" onClick={this.pickUp}>
+        <>
+        <div className='or'>or</div>
+        <div className="personalButton" onClick={this.pickUp}>
           Pick Up
-        </button>
+        </div>
+        </>
       );
     } else if (
       this.props.cardsToBeBeat.length === 0 &&
@@ -46,7 +49,10 @@ class PersonalButton extends React.Component {
       this.props.attackingCards.length > 0
     ) {
       return (
-        <button
+        <>
+        {this.state.hide ? null : <div className='or'>or</div>}
+        
+        <div
           className={
             this.state.hide
               ? 'personalButton invisibleButton'
@@ -55,10 +61,11 @@ class PersonalButton extends React.Component {
           onClick={this.pass}
         >
           Pass
-        </button>
+        </div>
+        </>
       );
     } else {
-      return <button className="personalButton invisibleButton"></button>;
+      return <div className="personalButton invisibleButton"></div>;
     }
   }
 }

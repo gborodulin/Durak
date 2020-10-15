@@ -1,24 +1,31 @@
 .gameDeck {
-  position: absolute;
   color: black;
   font-size: 50px;
-  width: 200px;
-  bottom: 20%;
-  left: 3%;
-  z-index: 0;
+  grid-column: 1/2;
+  grid-row: 2 /-1;
+
   /* background-color: crimson; */
 }
 
 .backOfDeck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1px, max-content));
-  width: 75px;
+  grid-template-rows: 100%;
+  width: 50%;
+  height: 50%;
+}
+
+.backofCard {
+  height: 100%;
+  width: 100%;
 }
 
 .cardsLeft {
   color: black;
   font-size: 30px;
   margin: 0px;
-  margin-left: 4px;
+  margin-left: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
   width: fit-content;
 }

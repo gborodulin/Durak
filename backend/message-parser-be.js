@@ -53,12 +53,14 @@ const fullDeck = [
 class Player {
   constructor(ws) {
     this.connection = ws;
-    this.name = 'Default';
+    this.name = 'Anonymous';
     this.inGame = false;
     this.hand = [];
     this.role = null;
     this.opponents = [];
     this.selectedCard = null;
+    
+    this.pass = false;
   }
 }
 
@@ -98,6 +100,7 @@ const messageParser = (data) => {
       value.role = null;
       value.opponents = [];
       value.selectedCard = null;
+      value.pass = false;
 
       //deal out cards to each player
       for (var i = 0; value.hand.length < 6; i++) {
@@ -115,6 +118,7 @@ const messageParser = (data) => {
     return { players: players, table: table };
     //---------------------------------------------------------------------------------------SELECT CARD FROM HAND
   } else if (data.method === 'selectCardFromHand') {
+
     const defenderId = Object.keys(players).find((id) => {
       return players[id].role === 'defender';
     });
@@ -186,6 +190,10 @@ const messageParser = (data) => {
     table.attackingCards = [];
     table.defendingCards = [];
 
+    for (const [player, value] of Object.entries(players)) {
+      value.pass = false
+    }
+
     refillHands(players, table);
     shiftAttackerDefender(players, data);
 
@@ -198,6 +206,7 @@ const messageParser = (data) => {
       (players[data.playerId].hand.length > 0 || table.gameDeck.length > 0)
     ) {
       privateTable.passCounter += 1;
+      players[data.playerId].pass = true
     }
 
     if (players[data.playerId].role === 'attacker') {
@@ -221,6 +230,10 @@ const messageParser = (data) => {
       table.cardsOnTable = [];
       table.attackingCards = [];
       table.defendingCards = [];
+
+      for (const [player, value] of Object.entries(players)) {
+        value.pass = false
+      }
 
       refillHands(players, table);
       shiftAttackerDefender(players, data);

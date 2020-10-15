@@ -1,11 +1,36 @@
 .personalButton {
-  position: fixed;
-  left: 20px;
-  bottom: 30px;
-  width: 200px;
-  height: 100px;
+  grid-column: 1/2;
+  grid-row: 1/ 1;
+  height: 35%;
+  width: 70%;
+  margin: 26% auto 0px auto;
+
+  font-family: 'instruct';
+  font-size: 3vw;
+  -webkit-text-stroke: 2px black;
+  color: rgb(184, 167, 11);
+  border: 4px solid rgb(184, 167, 11);
+}
+
+.personalButton:hover {
+  cursor: pointer;
+  color: rgb(253, 228, 5);
+  border: 4px solid rgb(253, 228, 5);
 }
 
 .invisibleButton {
   display: none;
+}
+
+.or {
+  text-align: center;
+  font-size: 2vw;
+
+  grid-column: 1/2;
+  grid-row: 1/ 2;
+
+  margin: 15% auto 0px auto;
+
+  font-family: 'instruct';
+  -webkit-text-stroke: 2px black;
 }

@@ -9,13 +9,14 @@ class Card extends React.Component {
     this.render = this.render.bind(this);
   }
 
-  sendCard() {
-    if (this.props.selectCardFromHand) {
+  sendCard(e) {
+    if (this.props.selectCardFromHand) {   
       this.props.selectCardFromHand(this.props.face, this.props.suit);
     }
     if (this.props.defendCardOnTable) {
       this.props.defendCardOnTable(this.props.face, this.props.suit);
     }
+
   }
 
   makeCardPretty(face, suit) {
@@ -90,7 +91,7 @@ class Card extends React.Component {
       this.props.selectedCard.suit === this.props.suit
     ) {
       return (
-        <div className="card" id="selectedCard" onClick={this.sendCard}>
+        <div className="card" id="selectedCard" onClick={this.sendCard} >
           {this.makeCardPretty(this.props.face, this.props.suit)}
         </div>
       );

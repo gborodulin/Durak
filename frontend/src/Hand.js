@@ -3,6 +3,8 @@ import './Hand.css';
 import Card from './Card.js';
 import PersonalButton from './PersonalButton.js';
 import PersonalMessage from './PersonalMessage.js';
+import Animate from './Animate'
+
 
 class Hand extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class Hand extends React.Component {
 
     this.state = {
       orgHand: [],
+      targetId: ''
     };
 
     this.selectCardFromHand = this.selectCardFromHand.bind(this);
@@ -18,6 +21,7 @@ class Hand extends React.Component {
   }
 
   selectCardFromHand(face, suit) {
+
     const card = { face: face, suit: suit };
     this.props.selectCardFromHand(card);
   }
@@ -54,6 +58,7 @@ class Hand extends React.Component {
   render() {
     return (
       <div className="hand">
+        <PersonalMessage role={this.props.role} />
         <PersonalButton
           cardsToBeBeat={this.props.cardsToBeBeat}
           attackingCards={this.props.attackingCards}
@@ -70,14 +75,16 @@ class Hand extends React.Component {
                 face={card.face}
                 suit={card.suit}
                 key={index}
+                cardNum={index}
                 inHand="inHand"
                 selectedCard={this.props.selectedCard}
                 selectCardFromHand={this.selectCardFromHand}
+                
               />
             );
           })}
         </div>
-        <PersonalMessage role={this.props.role} />
+        
       </div>
     );
   }

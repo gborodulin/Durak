@@ -3,6 +3,8 @@ import './App.css';
 import Hand from './Hand.js';
 import Table from './Table.js';
 import Opponent from './Opponent';
+import Animate from './Animate'
+
 
 const ws = new WebSocket('ws://localHost:8080');
 let playerId = 0;
@@ -17,7 +19,7 @@ class App extends React.Component {
 
       playerInfo: {
         hand: [],
-        name: 'Default',
+        name: 'Anonymous',
         role: null,
         opponents: [],
         selectedCard: null,
@@ -32,23 +34,34 @@ class App extends React.Component {
         trumpCard: {},
         gameOver: [null, ''],
       },
+
+
     };
 
+    this.inputField = React.createRef()
     this.componentDidMount = this.componentDidMount.bind(this);
     this.enterName = this.enterName.bind(this);
+
+    this.moveSelectedCard = this.moveSelectedCard.bind(this)
+    this.onClickReset = this.onClickReset.bind(this)
+
+    this.selectCardFromHand = this.selectCardFromHand.bind(this)
+    
   }
 
   componentDidMount() {
+    Animate.openSignIn()
+
     ws.onmessage = (message) => {
       const data = JSON.parse(message.data);
       if (data.method === 'initialConnection') {
         playerId = data.playerId;
         console.log(`my player id is ${playerId}`);
-      } else if (data.method === 'fullUpdate') {
-        this.setState({
-          playerInfo: data.playerInfo,
-          tableInfo: data.table,
-        });
+      } else if (data.method === 'fullUpdate') { 
+          this.setState({
+            playerInfo: data.playerInfo,
+            tableInfo: data.table,
+          });       
         console.log(data.playerInfo.role);
       } else if (data.method === 'personalResponse') {
         this.setState({ personalMessage: data.message });
@@ -56,6 +69,9 @@ class App extends React.Component {
         this.setState({ notAllowed: true });
       }
     };
+
+
+    this.inputField.current.focus()
   }
 
   //FUNCTIONS
@@ -74,6 +90,7 @@ class App extends React.Component {
   }
 
   defendCardOnTable(card) {
+   
     ws.send(
       JSON.stringify({
         method: 'defendCardOnTable',
@@ -121,10 +138,51 @@ class App extends React.Component {
     }
   }
 
+  moveSelectedCard(e){
+    
+    if(this.state.playerInfo.selectedCard){
+      const selectedCard = document.getElementById('selectedCard')
+
+      selectedCard.style.pointerEvents = 'none'
+      selectedCard.style.position='absolute'
+      selectedCard.style.top=`${e.clientY-50}px`
+      selectedCard.style.left=`${e.clientX-50}px`
+      selectedCard.style.zIndex= 1000
+    }
+
+  }
+
+  onClickReset(){
+    if(this.state.playerInfo.selectedCard){
+      const selectedCard = document.getElementById('selectedCard')
+
+      selectedCard.style.pointerEvents = ''
+      selectedCard.style.position=''
+      selectedCard.style.top=''
+      selectedCard.style.left=''
+      selectedCard.style.zIndex= ''
+
+      this.setState({ 
+        playerInfo: {
+        hand: this.state.playerInfo.hand,
+        name: this.state.playerInfo.name,
+        role: this.state.playerInfo.role,
+        opponents: this.state.playerInfo.opponents,
+        selectedCard: null,
+      },})
+    }
+
+
+
+    
+  }
+
+  
+
   render() {
     if (!this.state.notAllowed && this.state.nameEntered) {
       return (
-        <div className="App">
+        <div className="App" onMouseMove={this.moveSelectedCard} onClick={this.onClickReset}>
           <button
             className={
               this.state.playerInfo.opponents.length === 0
@@ -143,6 +201,7 @@ class App extends React.Component {
             gameOver={this.state.tableInfo.gameOver}
             role={this.state.playerInfo.role}
             defendCardOnTable={this.defendCardOnTable}
+            opponents={this.state.playerInfo.opponents}
           />
           <Hand
             hand={this.state.playerInfo.hand}
@@ -156,30 +215,35 @@ class App extends React.Component {
             pickUp={this.pickUp}
             pass={this.pass}
           />
-          <Opponent
+          {this.state.playerInfo.opponents.length === 1 ? <Opponent
             opponent={this.state.playerInfo.opponents[0]}
-            opponent0="opponent0"
-          />
-          <Opponent
-            opponent={this.state.playerInfo.opponents[1]}
             opponent1="opponent1"
-          />
+          />: <>
           <Opponent
-            opponent={this.state.playerInfo.opponents[2]}
-            opponent2="opponent2"
-          />
+          opponent={this.state.playerInfo.opponents[0]}
+          opponent0="opponent0"
+        />
+        <Opponent
+          opponent={this.state.playerInfo.opponents[1]}
+          opponent1="opponent1"
+        />
+        <Opponent
+          opponent={this.state.playerInfo.opponents[2]}
+          opponent2="opponent2"
+        />
+        </>}
         </div>
       );
     } else if (!this.state.notAllowed && !this.state.nameEntered) {
+      
       return (
-        <div className="App">
+        <div className="App App-alternate" >
           <h1 className="durak">Durak</h1>
-          <div className="logo">
-            <img src={require('./jesterHat.jpg')} alt="" />
-          </div>
+          <h3>RussiaN Card GamE</h3>
+          
           <div className="enterName">
             <p>Enter Your Name:</p>
-            <input type="text" onKeyDown={this.enterName}></input>
+            <input type="text" onKeyDown={this.enterName} ref={this.inputField}></input>
           </div>
         </div>
       );
