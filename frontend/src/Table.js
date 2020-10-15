@@ -55,7 +55,7 @@ class Table extends React.Component {
           <p className="gameOverMessage">
             Game Over
             <br />
-            {this.props.gameOver[1]} Looses
+            {this.props.gameOver[1]} Loses
           </p>
         </div>
       );

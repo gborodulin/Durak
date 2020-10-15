@@ -10,6 +10,7 @@
   float: left;
   border: 2px solid black;
   text-align: left;
+  border-radius: 5%;
 }
 
 .inHand:hover {
@@ -36,6 +37,7 @@
   width: 50px;
   height: 75px;
   margin-left: 5px;
+  border-radius: 5%;
 }
 
 .backOfCard img {

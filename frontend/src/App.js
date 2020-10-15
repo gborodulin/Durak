@@ -183,7 +183,7 @@ class App extends React.Component {
     if (!this.state.notAllowed && this.state.nameEntered) {
       return (
         <div className="App" onMouseMove={this.moveSelectedCard} onClick={this.onClickReset}>
-          <button
+          <div
             className={
               this.state.playerInfo.opponents.length === 0
                 ? 'newGameInvisible'
@@ -192,7 +192,7 @@ class App extends React.Component {
             onClick={this.startNewGame}
           >
             Start New Game
-          </button>
+          </div>
           <Table
             attackingCards={this.state.tableInfo.attackingCards}
             defendingCards={this.state.tableInfo.defendingCards}
