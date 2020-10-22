@@ -26,8 +26,6 @@ class Opponent extends React.Component {
       oppName = <h3 className="oppName">{opponent.name}</h3>;
     }
 
-    console.log('pass', this.props.opponent.pass)
-
     return (
       <div>
         <div className='passAndName'>
