@@ -66,6 +66,7 @@ class Table extends React.Component {
           <p className="gameOverMessage">
             Please wait for other players to connect
             <br />
+            <br/>
             (or open a new tab to play locally)
           </p>
         </div>

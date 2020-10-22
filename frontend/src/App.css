@@ -88,5 +88,29 @@
 .enterName {
   grid-column: 2/3;
   grid-row: 2/3;
-  padding-top: 150px;
+  /* padding-top: 150px; */
+}
+
+.enterName input {
+  padding: 12px 20px;
+  font-size: 25px;
+}
+
+.joinTable {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  align-self: end;
+  justify-self: center;
+
+  font-size: 25px;
+  color: rgb(184, 167, 11);
+  border: 4px solid rgb(184, 167, 11);
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.joinTable:hover {
+  cursor: pointer;
+  color: rgb(253, 228, 5);
+  border: 4px solid rgb(253, 228, 5);
 }

@@ -5,9 +5,9 @@ const Animate = {
     
     openSignIn(){
         anime({
-            targets: '.durak, .enterName, .App-alternate h3',
+            targets: '.durak, .App-alternate h3, .enterName, .joinTable',
             direction: 'reverse',
-            translateY: -600,
+            translateY: -1000,
             duration: 1000,
             easing: 'easeInOutExpo'
         });

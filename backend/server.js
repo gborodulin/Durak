@@ -73,6 +73,7 @@ wss.on('connection', (ws) => {
       if (players[idToDelete].inGame === true) {
         Object.values(players).forEach((player) => {
           player.role = null;
+          player.inGame = false;
         });
         table.gameOver = [true, players[idToDelete].name];
       }

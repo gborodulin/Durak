@@ -119,16 +119,17 @@ class App extends React.Component {
   }
 
   enterName(e) {
+    console.log('enterName activated', this.inputField.current.value)
     if (
-      e.key === 'Enter' &&
-      e.target.value !== '' &&
-      e.target.value.length < 9
+      (e.key === 'Enter' || e.target.className === 'joinTable')
+      && this.inputField.current.value !== '' 
+      && this.inputField.current.value.length < 13
     ) {
       ws.send(
         JSON.stringify({
           method: 'enterName',
           playerId: playerId,
-          name: e.target.value,
+          name: this.inputField.current.value,
         })
       );
 
@@ -200,9 +201,7 @@ class App extends React.Component {
               Forfeit
             </div> 
           </div>
-
           :
-
           <div
             className={
               (this.state.playerInfo.opponents.length === 0) || (this.state.tableInfo.gameOver[0] === false && this.state.playerInfo.hand.length === 0) 
@@ -261,14 +260,15 @@ class App extends React.Component {
     } else if (!this.state.notAllowed && !this.state.nameEntered) {
       
       return (
-        <div className="App App-alternate" >
+        <div className="App App-alternate" onKeyDown={this.enterName}>
           <h1 className="durak">Durak</h1>
           <h3>RussiaN Card GamE</h3>
           
           <div className="enterName">
             <p>Enter Your Name:</p>
-            <input type="text" onKeyDown={this.enterName} ref={this.inputField}></input>
+            <input type="text" ref={this.inputField} ></input>
           </div>
+          <div className='joinTable' onClick={this.enterName}>Join Table</div>
         </div>
       );
     } else {
