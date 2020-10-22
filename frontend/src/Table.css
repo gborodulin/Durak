@@ -44,13 +44,22 @@
 
 .gameOverMessage {
   grid-column: 1/-1;
+  grid-row: 1/-1;
 
   color: red;
   font-family: 'instruct';
   letter-spacing: 3px;
   -webkit-text-stroke: 2px black;
-  font-size: 3vw;
+  font-size: 60px;
   font-weight: 600;
   text-align: center;
   margin: auto;
+}
+
+#loserHat {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  margin: auto;
+  margin-bottom: 105px;
+  width: 150px;
 }

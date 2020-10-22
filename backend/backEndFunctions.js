@@ -196,6 +196,19 @@ const endGameIfOver = (players, table) => {
   }
 };
 
+
+//
+const forfeit = (players, table, loserName) => {
+  Object.values(players).forEach((player) => {
+    player.role = null;
+    player.hand = [];
+  });
+
+  table.gameOver = [true, loserName];
+}
+//
+
+
 const whoGoesFirst = (players, table) => {
   //who has the lowest trump
   let firstLowestTrumpFound = false;
@@ -279,4 +292,5 @@ export {
   whoGoesFirst,
   shuffle,
   getCleanTable,
+  forfeit
 };

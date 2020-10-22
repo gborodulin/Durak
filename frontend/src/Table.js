@@ -52,10 +52,11 @@ class Table extends React.Component {
     } else if (this.props.gameOver[0] === true) {
       return (
         <div className="table">
+          <img id='loserHat' src={require('./icons/jester.svg')}/>
           <p className="gameOverMessage">
-            Game Over
+            {this.props.gameOver[1]}
             <br />
-            {this.props.gameOver[1]} Loses
+             Loses
           </p>
         </div>
       );

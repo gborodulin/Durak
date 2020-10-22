@@ -177,22 +177,46 @@ class App extends React.Component {
     
   }
 
+  forfeit(){
+    ws.send(
+      JSON.stringify({
+        method: 'forfeit',
+        playerId: playerId,
+      })
+    );
+  }
+
   
 
   render() {
     if (!this.state.notAllowed && this.state.nameEntered) {
       return (
         <div className="App" onMouseMove={this.moveSelectedCard} onClick={this.onClickReset}>
+
+
+        {this.state.tableInfo.gameOver[0] === false && this.state.playerInfo.hand.length > 0 ? 
+         <div className='newGame' onClick={this.forfeit}>
+            <div className='newGameText'>
+              Forfeit
+            </div> 
+          </div>
+
+          :
+
           <div
             className={
-              this.state.playerInfo.opponents.length === 0
+              (this.state.playerInfo.opponents.length === 0) || (this.state.tableInfo.gameOver[0] === false && this.state.playerInfo.hand.length === 0) 
                 ? 'newGameInvisible'
                 : 'newGame'
             }
             onClick={this.startNewGame}
           >
+            <div className='newGameText'>
             Start New Game
+            </div>
           </div>
+        }
+
           <Table
             attackingCards={this.state.tableInfo.attackingCards}
             defendingCards={this.state.tableInfo.defendingCards}

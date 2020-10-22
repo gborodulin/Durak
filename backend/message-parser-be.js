@@ -9,6 +9,7 @@ import {
   whoGoesFirst,
   shuffle,
   getCleanTable,
+  forfeit,
 } from './backEndFunctions.js';
 
 const fullDeck = [
@@ -235,13 +236,19 @@ const messageParser = (data) => {
         value.pass = false
       }
 
+      if(activePlayers. length > 1){
       refillHands(players, table);
       shiftAttackerDefender(players, data);
+      }
+      
     }
 
     return { players: players, table: table };
   } else if (data.method === 'enterName') {
     players[data.playerId].name = data.name;
+    return { players: players, table: table };
+  }else if (data.method === 'forfeit'){
+    forfeit(players, table, players[data.playerId].name)
     return { players: players, table: table };
   }
 };

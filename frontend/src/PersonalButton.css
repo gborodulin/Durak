@@ -10,6 +10,12 @@
   -webkit-text-stroke: 2px black;
   color: rgb(184, 167, 11);
   border: 4px solid rgb(184, 167, 11);
+  display: grid;
+}
+
+.personalButtonText {
+  justify-self: center;
+  align-self: center;
 }
 
 .personalButton:hover {

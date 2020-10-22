@@ -39,7 +39,9 @@ class PersonalButton extends React.Component {
         <>
         <div className='or'>or</div>
         <div className="personalButton" onClick={this.pickUp}>
+        <div className='personalButtonText'>
           Pick Up
+          </div>
         </div>
         </>
       );
@@ -60,7 +62,9 @@ class PersonalButton extends React.Component {
           }
           onClick={this.pass}
         >
+          <div className='personalButtonText'>
           Pass
+          </div>
         </div>
         </>
       );
