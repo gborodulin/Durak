@@ -60,7 +60,7 @@ class Card extends React.Component {
     if (this.props.opponent) {
       return (
         <div className="backOfCard">
-          <img src={require('./jesterHat.jpg')} alt="" />
+          <img src={require('./icons/jester.svg')} alt="" />
         </div>
       );
       //trump card

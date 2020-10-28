@@ -1,5 +1,6 @@
 .opp {
   margin: auto;
+  display: grid;
 }
 
 .oppName {

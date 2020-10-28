@@ -200,6 +200,7 @@ const endGameIfOver = (players, table) => {
 //
 const forfeit = (players, table, loserName) => {
   Object.values(players).forEach((player) => {
+    player.inGame = false;
     player.role = null;
     player.hand = [];
   });
