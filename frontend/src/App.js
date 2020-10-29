@@ -119,17 +119,18 @@ class App extends React.Component {
   }
 
   enterName(e) {
-    console.log('enterName activated', this.inputField.current.value)
     if (
       (e.key === 'Enter' || e.target.className === 'joinTable')
       && this.inputField.current.value !== '' 
       && this.inputField.current.value.length < 13
     ) {
+      const allCaps = this.inputField.current.value.toUpperCase()
+
       ws.send(
         JSON.stringify({
           method: 'enterName',
           playerId: playerId,
-          name: this.inputField.current.value,
+          name: allCaps
         })
       );
 
@@ -265,14 +266,14 @@ class App extends React.Component {
           <h3>RussiaN Card GamE</h3>
           
           <div className="enterName">
-            <p>Enter Your Name:</p>
+            <p>Enter Your Name:<br/> <div className='charAmount'>(12 characters max)</div></p>
             <input type="text" ref={this.inputField} ></input>
           </div>
           <div className='joinTable' onClick={this.enterName}>Join Table</div>
         </div>
       );
     } else {
-      return <div className="App">Table is full, try again later</div>;
+      return <div className="App"><div className='tableIsFull'>Table is full <br/> try again later</div></div>;
     }
   }
 }

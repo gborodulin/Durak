@@ -27,7 +27,7 @@ class Opponent extends React.Component {
     }
 
     return (
-      <div>
+      <>
         <div className='passAndName'>
           {oppName}
           {this.props.opponent.pass ? <div className='oppPass'>Pass</div> : null}
@@ -39,7 +39,7 @@ class Opponent extends React.Component {
             return <Card opponent={card} key={index} />;
           })}
         </div>
-      </div>
+      </>
     );
   }
 

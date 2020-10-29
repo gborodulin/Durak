@@ -18,6 +18,7 @@
 
 .opp .oppHand {
   display: grid;
+  justify-self: center;
 
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(10px, max-content));
@@ -33,10 +34,11 @@
 }
 
 .passAndName {
-  width: 40%;
+  width: fit-content;
   height: 10%;
-  margin: auto;
+  justify-self: center;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .opponent0 {

@@ -72,6 +72,7 @@
   color: red;
   -webkit-text-stroke: 5px black;
   margin-top: 250px;
+  letter-spacing: 3px;
 }
 
 .App-alternate h3 {
@@ -80,7 +81,7 @@
   font-size: 2.5vw;
   font-family: 'Soviet';
   color: red;
-  -webkit-text-stroke: 5px black;
+  -webkit-text-stroke: 2px black;
   margin-top: 400px;
   letter-spacing: 5px;
 }
@@ -88,7 +89,10 @@
 .enterName {
   grid-column: 2/3;
   grid-row: 2/3;
-  /* padding-top: 150px; */
+}
+
+.enterName .charAmount{
+  font-size: 15px;
 }
 
 .enterName input {
@@ -113,4 +117,15 @@
   cursor: pointer;
   color: rgb(253, 228, 5);
   border: 4px solid rgb(253, 228, 5);
+}
+
+.tableIsFull{
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  justify-self: center;
+  align-self: center;
+  font-family: 'instruct';
+  font-size: 60px;
+  color: red;
+  -webkit-text-stroke: 2px black;
 }
