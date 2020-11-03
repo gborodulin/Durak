@@ -3,7 +3,6 @@ import './Hand.css';
 import Card from './Card.js';
 import PersonalButton from './PersonalButton.js';
 import PersonalMessage from './PersonalMessage.js';
-import Animate from './Animate'
 
 
 class Hand extends React.Component {

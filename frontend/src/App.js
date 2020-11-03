@@ -56,13 +56,11 @@ class App extends React.Component {
       const data = JSON.parse(message.data);
       if (data.method === 'initialConnection') {
         playerId = data.playerId;
-        console.log(`my player id is ${playerId}`);
       } else if (data.method === 'fullUpdate') { 
           this.setState({
             playerInfo: data.playerInfo,
             tableInfo: data.table,
           });       
-        console.log(data.playerInfo.role);
       } else if (data.method === 'personalResponse') {
         this.setState({ personalMessage: data.message });
       } else if (data.method === 'rejection') {
@@ -266,7 +264,7 @@ class App extends React.Component {
           <h3>RussiaN Card GamE</h3>
           
           <div className="enterName">
-            <p>Enter Your Name:<br/> <div className='charAmount'>(12 characters max)</div></p>
+            <div>Enter Your Name:<br/> <div className='charAmount'>(12 characters max)</div></div>
             <input type="text" ref={this.inputField} ></input>
           </div>
           <div className='joinTable' onClick={this.enterName}>Join Table</div>
