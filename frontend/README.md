@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Durak
 
-## Available Scripts
+This is a recreation of a classic Russian card game that is currently deployed on Google Cloud to play with up to 4 players.
 
-In the project directory, you can run:
+### Visit the the demo here:
 
-### `npm start`
+[http://34.86.64.212:3000/](http://34.86.64.212:3000/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Rules:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Needed
 
-### `npm test`
+Two to six players; 36 card deck (aces down to 6s)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Card Rank
 
-### `npm run build`
+Highest to lowest - A, K, Q, J, 10, 9, 8, 7, 6
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Deal
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Six cards to each player, one card at a time. The next top card is flipped up, and the remaining deck is placed on top of it. The suit of the card flipped up is the trump suit for the round.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Objective
 
-### `npm run eject`
+The object of the game is to avoid being the last player with cards.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Game Play
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+During game play, there are attackers and a defender. The defender is successful when he/she is able to beat all attacks made and is unsuccessful if he/she is unable or unwilling to beat an attack. The first attacker is the player with the lowest trump card. The first defender is the player left of the first attacker.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+An attack consists of a player playing a card into the middle. A defense is made by beating the card played. An attack card can be beaten by a higher ranking card in the same suit, or any trump card if the attack card is a non-trump suited card.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If an attack is successfully defended, another attack can be made, but the new attack card must be the same rank as a previously played card (i.e., the same rank as the first attack card or the defending card). After the original attacker is done attacking, the player left of the defender can make an attack if possible.
 
-## Learn More
+The opportunity to make attacks continues clockwise (if playing with more than four players, only the player right and left of the defender can attack).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+An attack has a maximum of six attacking cards. If the defender begins with less than six cards, the maximum number of attacking cards is equal to the number of cards the defender has at the start of the attack. An attack may end before six attacking cards are played if the attackers cannot or choose not to attack further.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If a defender successfully defends all attacks, he/she becomes the new attacker. When a defender wins, the cards from the middle are discarded. If a defender cannot defend an attack, he/she must add all the cards from the middle to his/her hand and loses his/her turn to attack.
 
-### Code Splitting
+Before the next attack begins, any player under six cards will draw from the remaining deck to get back to six cards. Once the remaining deck runs out, no card draw occurs after an attack.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+A defender can choose not to play on an attacking card even if the defender is able to beat the card played. The defender would take the cards from the middle and loses his/her turn to attack. But, before the defender takes the cards, other players can add possible attacking cards. For example, a player could add a 6 to the middle if a 6 is already in the middle.
 
-### Analyzing the Bundle Size
+### Losing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The last player still with cards is the loser and deals the next game.
 
-### Making a Progressive Web App
+### Rules
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+After an attack, players will draw cards to return their hands to at least six cards. The original attacker draws first, then other attackers moving clockwise, and lastly, the defender if needed.
 
-### Advanced Configuration
+The last draw card is the flipped up trump card. Once this card is drawn, the race to get rid of cards begins. The last player still with cards is the loser.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+A player does not have to attack, even if possible. A defender does not have to defend, even if possible.
