@@ -2,7 +2,7 @@
 
 This is a recreation of a classic Russian card game that is currently deployed on Google Cloud to play with up to 4 players.
 
-### Visit the the demo here:
+### Visit the demo here:
 
 [http://34.86.64.212:3000/](http://34.86.64.212:3000/)
 
