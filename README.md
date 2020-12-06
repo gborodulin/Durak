@@ -10,7 +10,7 @@ This is a recreation of a classic Russian card game that is currently deployed o
 
 ### Needed
 
-Two to six players; 36 card deck (aces down to 6s)
+Two to four players; 36 card deck (aces down to 6s)
 
 ### Card Rank
 
